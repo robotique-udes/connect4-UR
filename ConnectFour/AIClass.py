@@ -1,5 +1,5 @@
 import math
-from PlayerClasses import Player
+from ConnectFour.PlayerClasses import Player
 
 INFINITY = math.inf
 class AI(Player):	

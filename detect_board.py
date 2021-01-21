@@ -88,10 +88,10 @@ class BoardDetector():
             
 
     def is_red(self, hsv):
-        lower_1 = np.array([0,120,70])
+        lower_1 = np.array([0,60,50])
         upper_1 = np.array([10,255,255])
         
-        lower_2 = np.array([170,120,70])
+        lower_2 = np.array([170,60,50])
         upper_2 = np.array([180,255,255])
             
         range_1 =  (hsv >= lower_1).all() and (hsv <= upper_1).all()
@@ -121,15 +121,18 @@ def main():
     board_detector = BoardDetector()
 
     key = 0
+    idx = 0
     while not key == ord('q'):
         img, board = board_detector.detect()
 
         if not board == None:
             game_board = GameBoard()
             game_board.board = board
+            print('----------   ', idx, '   ----------')
             game_board.printBoard()
 
         # Show output image
+        idx += 1
         cv2.imshow("img", img)
         key = cv2.waitKey(0)
     
