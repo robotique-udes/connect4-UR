@@ -52,7 +52,7 @@ def main():
             # Show output image
             cv2.imshow("img", img)
 
-        key = cv2.waitKey(5)
+        key = cv2.waitKey(1)
         idx += 1
     
     board_detector.cap.release()
