@@ -58,6 +58,8 @@ def main():
     done = False
     num_red_chips = 0
     num_yellow_chips = 0
+    first_red_pass = False
+    first_yellow_pass = False
     while not done:
         img, board = board_detector.detect()
         game_board = GameBoard()
@@ -74,7 +76,8 @@ def main():
 
         # Check if bot played
         red_chips = count_chips('X', board)
-        if red_chips > num_red_chips:
+        if red_chips == num_red_chips + 1 or not first_red_pass:
+            first_red_pass = True
             num_red_chips = red_chips
             
             # Check if bot wins
@@ -87,7 +90,8 @@ def main():
 
         # Check if opponent played
         yellow_chips = count_chips('O', board)
-        if yellow_chips > num_yellow_chips:
+        if yellow_chips == num_yellow_chips + 1 or not first_yellow_pass:
+            first_yellow_pass = True
             num_yellow_chips = yellow_chips
 
             # Check if player wins

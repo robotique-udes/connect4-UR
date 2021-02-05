@@ -36,14 +36,14 @@ class BoardDetector():
 
         # Capture frame
         ret, img = self.cap.read()
-        img = img[40:460, 40:600]
+        img = img[45:460, 45:595]
 
         # Make conversions 
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
         # Detect circles
-        circles = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, 4.5, minDist=60, minRadius=25, maxRadius=35)
+        circles = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, 4.3, minDist=60, minRadius=25, maxRadius=35)
 
         # Check if circles were found
         if circles is not None:     
@@ -84,6 +84,13 @@ class BoardDetector():
             for i in range(6):
                 row = sorted(spots[i*7:i*7+7], key=lambda x: x[0])
                 board.append([r[2] for r in row])
+
+        # Resize image to fit screen
+        scale_percent = 220
+        width = int(img.shape[1] * scale_percent / 100)
+        height = int(img.shape[0] * scale_percent / 100)
+        dim = (width, height)
+        img = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
 
         return img, board
             
