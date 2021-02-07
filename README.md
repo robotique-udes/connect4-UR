@@ -42,7 +42,7 @@ Using the library UR-RTDE, a python script activates and deactivates the UR's I/
 ### Referential
 Every waypoint inside the robot's trajectories is taught relative to a feature (referential) point of the UR. This way, if the mecanical setup needs to change, you will only need to reteach the feature point to the UR and the trajectories will remain valid. By default, this point is teached in the bottom left corner of the playing surface (from the robot's perspective).
 
-![](imgs/referential_UR.jpeg)
+![](imgs/referential_UR.jpg)
 
 
 
