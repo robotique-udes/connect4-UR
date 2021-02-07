@@ -21,7 +21,7 @@ Finally, the game and the chip distributor are bolted to the wooden plank. Part 
 
 ## Code
 
-All you need to run the code is a python environment with opencv and ur-rtde library. Then, you can connect to the UR via Ethernet.
+All you need to run the code is a python environment with opencv and ur-rtde library. Then, you can connect to the UR via Ethernet. You will need to set a static IP adress on the UR that is on the same network as the controlling PC.
 
 ```bash
 pip install -r requirements.txt
@@ -34,9 +34,15 @@ The board is detected using opencv. First, circles are detected using HoughCircl
 
 
 ### Game algorithm
-
 The algorithm from https://github.com/ForrestKnight/ConnectFour is used. It receives the board state from the board detection algorithm and outputs the robot's move.
 
 ### UR
+Using the library UR-RTDE, a python script activates and deactivates the UR's I/Os to communicate in which column the robot should play. Trajectories to each column and to the chip distributor were teached. The correct trajectory starts when the corresponding I/O is activated by the python script. Each column is associated with its own trajectory and trajectories are saved as subprograms. The main program running on the UR constantly checks the values of the robot's I/O's and calls the appropriate subprogram. The I/O's are mapped so that the digital output 1 triggers the leftmost column from the camera's persepective and so on. 
 
-Using the library UR-RTDE, a python script activates and deactivates the UR's I/Os to communicate in which column the robot should play. Trajectories to each column and to the chip distributor were teached. The correct trajectory starts when the corresponding I/O is activated by the python script. 
+### Referential
+Every waypoint inside the robot's trajectories is taught relative to a feature (referential) point of the UR. This way, if the mecanical setup needs to change, you will only need to reteach the feature point to the UR and the trajectories will remain valid. By default, this point is teached in the bottom left corner of the playing surface (from the robot's perspective).
+
+![](imgs/referential_UR.jpeg)
+
+
+
