@@ -24,7 +24,14 @@ Finally, the game and the chip distributor are bolted to the wooden plank. Part 
 All you need to run the code is a python environment with opencv and ur-rtde library. Then, you can connect to the UR via Ethernet. You will need to set a static IP adress on the UR that is on the same network as the controlling PC.
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
+```
+### Usage
+
+To play against the robot, launch the main script on UR and launch the play script on your computer:
+
+```bash
+python3 play_ur.py
 ```
 
 ### Board detection
