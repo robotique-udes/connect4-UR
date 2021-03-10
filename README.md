@@ -44,5 +44,16 @@ Every waypoint inside the robot's trajectories is taught relative to a feature (
 
 ![](imgs/referential_UR.jpg)
 
+## Usage with Docker
+
+To build Docker container:
+```bash
+sudo docker build -t connect4 .
+```
+
+To run container:
+```bash
+sudo docker run --rm -ti --device /dev/video0 -e DISPLAY=$DISPLAY --net=host --ipc=host -v /tmp/.X11-unix:/tmp/.X11-unix connect4
+```
 
 

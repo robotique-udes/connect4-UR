@@ -78,12 +78,12 @@ class BoardDetector():
 
                 spots.append((x, y, chip))
 
-        if len(spots) == 42:
-            board = []
-            spots = sorted(spots, key=lambda x: x[1])
-            for i in range(6):
-                row = sorted(spots[i*7:i*7+7], key=lambda x: x[0])
-                board.append([r[2] for r in row])
+            if len(spots) == 42:
+                board = []
+                spots = sorted(spots, key=lambda x: x[1])
+                for i in range(6):
+                    row = sorted(spots[i*7:i*7+7], key=lambda x: x[0])
+                    board.append([r[2] for r in row])
 
         # Resize image to fit screen
         scale_percent = 220

@@ -43,6 +43,7 @@ def count_chips(chip, board):
 
 
 def main():
+    print('Program Started, Connecting to UR...')
     # Create rtde objects to communicate with UR5
     rtde_io_ = rtde_io.RTDEIOInterface("169.254.151.102")
     rtde_receive_ = rtde_receive.RTDEReceiveInterface("169.254.151.102")
