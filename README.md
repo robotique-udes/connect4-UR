@@ -65,12 +65,12 @@ Connect the UR to your computer via ethernet as well as the camera via USB.
 
 On your computer, open the network settings. You should see a wired connection.
 
-![](imgs/network-1.jpg)
+![](imgs/network-1.png)
 
 Under IPv4 and IPv6, choose Link-Local Only and click apply.
 
-![](imgs/network-2.jpg)
-![](imgs/network-3.jpg)
+![](imgs/network-2.png)
+![](imgs/network-3.png)
 
 Open a terminal and clone this repository.
 
