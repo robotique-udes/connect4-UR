@@ -51,16 +51,41 @@ Every waypoint inside the robot's trajectories is taught relative to a feature (
 
 ![](imgs/referential_UR.jpg)
 
-## Usage with Docker
+## Detailed Usage with Docker (Unix)
 
-To build Docker container:
+Turn on UR Robot and activate Gripper.
+
+![](imgs/ur-1.jpg)
+
+Load program main_connect4.
+
+![](imgs/ur-2.jpg)
+
+Connect the UR to your computer via ethernet as well as the camera via USB.
+
+On your computer, open a terminal and clone this repository.
+
+```bash
+git clone https://github.com/robotique-udes/connect4-UR
+cd connect4-UR
+```
+
+Allow display forwarding: 
+
+```bash
+xhost +
+```
+
+Build the Docker container:
 ```bash
 sudo docker build -t connect4 .
 ```
 
-To run container:
+Run the container, this will run the script `play_ur.py`. To quit, press `q` :
 ```bash
-sudo docker run --rm -ti --device /dev/video0 -e DISPLAY=$DISPLAY --net=host --ipc=host -v /tmp/.X11-unix:/tmp/.X11-unix connect4
+sudo docker run --rm -ti --device /dev/video<X>:/dev/video0 -e DISPLAY=$DISPLAY --net=host --ipc=host -v /tmp/.X11-unix:/tmp/.X11-unix connect4
 ```
+
+Note: Change <X> in /dev/video<X> by the number assigned to the usb camera in your machine.
 
 
