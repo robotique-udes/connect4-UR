@@ -88,4 +88,8 @@ sudo docker run --rm -ti --device /dev/video<X>:/dev/video0 -e DISPLAY=$DISPLAY 
 
 Note: Change <X> in /dev/video<X> by the number assigned to the usb camera in your machine.
 
+Finally, press play on the teach to start the program on the UR.
+
+![](imgs/ur-3.jpg)
+
 
