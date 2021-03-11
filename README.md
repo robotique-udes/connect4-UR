@@ -63,7 +63,16 @@ Load program main_connect4.
 
 Connect the UR to your computer via ethernet as well as the camera via USB.
 
-On your computer, open a terminal and clone this repository.
+On your computer, open the network settings. You should see a wired connection.
+
+![](imgs/network-1.jpg)
+
+Under IPv4 and IPv6, choose Link-Local Only and click apply.
+
+![](imgs/network-2.jpg)
+![](imgs/network-3.jpg)
+
+Open a terminal and clone this repository.
 
 ```bash
 git clone https://github.com/robotique-udes/connect4-UR
