@@ -86,7 +86,7 @@ Run the container, this will run the script `play_ur.py`. To quit, press `q` :
 sudo docker run --rm -ti --device /dev/video<X>:/dev/video0 -e DISPLAY=$DISPLAY --net=host --ipc=host -v /tmp/.X11-unix:/tmp/.X11-unix connect4
 ```
 
-Note: Change <X> in /dev/video<X> by the number assigned to the usb camera in your machine.
+Note: Change `<X>` in `/dev/video<X>` by the number assigned to the usb camera in your machine.
 
 Finally, press play on the teach to start the program on the UR.
 
